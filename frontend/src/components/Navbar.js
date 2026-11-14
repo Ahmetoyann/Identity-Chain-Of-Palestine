@@ -2,17 +2,19 @@ import { useState } from 'react';
 import Button from './Button';
 
 const defaultLinks = [
-	{ label: 'HİKAYELER (ARŞİV)', href: '#stories' },
-	{ label: 'MANİFESTO', href: '#manifesto' },
-	{ label: 'İLETİŞİM', href: '#contact' },
+	{ label: 'ARŞİV', href: '/archive' },
+	{ label: 'MANİFESTO', href: '/manifesto' },
+	{ label: 'SSS', href: '/faq' },
+	{ label: 'İLETİŞİM', href: '/contact' },
 ];
 
 function Navbar({
 	brand = 'IDENTITY CHAIN',
-	brandHref = '#home',
+	brandHref = '/',
 	links = defaultLinks,
 	actionLabel = 'Gönüllü Ol',
-	actionHref = '#volunteer',
+	actionHref = '/archive',
+	onAction,
 	className = '',
 }) {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -25,7 +27,7 @@ function Navbar({
 	return (
 		<header className={classes}>
 			<a className="brand" href={brandHref} aria-label={`${brand} ana sayfa`}>
-				<span className="brand-mark" aria-hidden="true"><i /><i /><b /></span>
+				<img className="brand-logo" src="/ana_logo_transparent.png" alt="" />
 				<span className="brand-name">{brand}</span>
 			</a>
 
@@ -45,7 +47,13 @@ function Navbar({
 					<a key={`${label}-${href}`} href={href} onClick={closeMenu}>{label}</a>
 				))}
 				{actionLabel && (
-					<Button className="volunteer-link" href={actionHref} variant="olive" onClick={closeMenu}>
+					<Button className="volunteer-link" href={onAction ? undefined : actionHref} variant="olive" onClick={(event) => {
+						closeMenu();
+						if (onAction) {
+							event.preventDefault();
+							onAction();
+						}
+					}}>
 						{actionLabel}
 					</Button>
 				)}

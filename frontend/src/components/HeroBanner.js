@@ -9,6 +9,7 @@ function HeroBanner({
 	secondLine,
 	actionLabel,
 	actionHref = '#content',
+	onAction,
 	backgroundImage,
 	showKey = true,
 	children,
@@ -37,7 +38,11 @@ function HeroBanner({
 					</Text>
 				)}
 				{actionLabel && (
-					<Button className="hero-banner__action" href={actionHref}>
+					<Button
+						className="hero-banner__action"
+						href={onAction ? undefined : actionHref}
+						onClick={onAction ? (event) => { event.preventDefault(); onAction(); } : undefined}
+					>
 						{actionLabel}
 					</Button>
 				)}

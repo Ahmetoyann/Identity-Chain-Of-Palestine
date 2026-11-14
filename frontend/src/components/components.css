@@ -3,10 +3,10 @@
   position: relative;
   z-index: 5;
   display: grid;
-  grid-template-columns: minmax(200px, 1fr) repeat(3, max-content) minmax(180px, 1fr);
+  grid-template-columns: minmax(150px, 1fr) repeat(4, max-content) max-content;
   align-items: center;
-  column-gap: 42px;
-  min-height: 68px;
+  column-gap: 28px;
+  min-height: 92px;
   padding: 0 4.1%;
   background: var(--paper);
 }
@@ -17,6 +17,14 @@
   gap: 14px;
   width: max-content;
   text-decoration: none;
+}
+
+.brand-logo {
+  display: block;
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  object-fit: contain;
 }
 
 .brand-mark {
@@ -468,6 +476,9 @@
 }
 
 .site-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--serif);
   font-size: 17px;
   text-decoration: none;
@@ -495,7 +506,7 @@
     column-gap: 24px;
     padding-right: 3%;
     padding-left: 3%;
-    grid-template-columns: minmax(175px, 1fr) repeat(3, max-content) minmax(130px, 1fr);
+    grid-template-columns: minmax(130px, 1fr) repeat(4, max-content) max-content;
   }
 
   .brand {
@@ -516,11 +527,11 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .site-header {
     display: flex;
     justify-content: space-between;
-    min-height: 66px;
+    min-height: 82px;
     padding: 0 22px;
   }
 
@@ -554,7 +565,7 @@
 
   .primary-nav {
     position: absolute;
-    top: 66px;
+    top: 82px;
     right: 0;
     left: 0;
     display: none;
@@ -584,7 +595,7 @@
   }
 
   .hero-banner {
-    height: calc(100svh - 66px);
+    height: calc(100svh - 82px);
     min-height: 610px;
   }
 

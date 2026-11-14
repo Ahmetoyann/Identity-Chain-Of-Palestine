@@ -8,20 +8,21 @@ FastAPI backend using PostgreSQL, asyncpg, SQLAlchemy 2.x async sessions, Pydant
 - PostgreSQL 14+
 - PowerShell on Windows (commands below)
 
-## Windows setup
+## Docker development stack
 
-Run commands from the repository root:
+From the repository root, start PostgreSQL, apply Alembic migrations, seed 20 clearly labeled synthetic profiles, and serve the frontend/API:
 
 ```powershell
-cd backend
-py -3.12 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-Copy-Item .env.example .env
+docker compose up --build
 ```
 
-Edit `.env` and set a strong `POSTGRES_PASSWORD`. `DATABASE_URL` must use `postgresql+asyncpg://`. If the URL is omitted, the application composes one from the `POSTGRES_*` settings.
+Open `http://localhost:8080`; API docs are available at `http://localhost:8080/docs`. The API is also available locally at `http://localhost:8001`; this avoids the default port 8000, which may be used by another local project. The Compose stack binds web and API ports to localhost and does not publish PostgreSQL. Its fallback password is for local development only. Set a strong `POSTGRES_PASSWORD` in the root environment before sharing or deploying the stack. Demo seeding refuses to run unless `APP_ENV=development`.
+
+The 20 representative profiles are fictional and do not describe real people or custody situations. Their illustrative SVG portraits are stored as bytes in PostgreSQL; they are not photographs. Replace them only with verified information and documented consent. The schema deliberately omits detention location, personal identity numbers, and family contact details.
+
+Development action flows are intentionally limited to representative profiles: match requests are stored as pending, spiritual notes remain hidden until moderated, and contribution buttons are idempotent. The downloadable action guide is available only after a match is approved and is a clearly marked starting draft, not legal or operational advice. Production moderation, authentication, rate limiting, consent review, and a formally approved guide are required before enabling these flows for real profiles.
+
+For a local, non-Docker setup, install requirements in a Python 3.11+ environment, provide a PostgreSQL database, and set `DATABASE_URL` to a `postgresql+asyncpg://` URL. If the URL is omitted, the application composes one from the `POSTGRES_*` settings.
 
 Create the PostgreSQL role and database if they do not already exist (run in `psql` as a PostgreSQL administrator, replacing the password):
 
@@ -30,11 +31,11 @@ CREATE ROLE identity_chain LOGIN PASSWORD 'replace-with-a-strong-password';
 CREATE DATABASE identity_chain OWNER identity_chain;
 ```
 
-Apply the first migration and start the API:
+Apply the checked-in migration, seed development-only demo records, and start the API:
 
 ```powershell
-alembic revision --autogenerate -m "create users table"
 alembic upgrade head
+python -m app.seed_demo_data
 uvicorn app.main:app --reload
 ```
 

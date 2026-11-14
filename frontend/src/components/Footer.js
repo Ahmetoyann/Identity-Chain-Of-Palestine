@@ -3,7 +3,10 @@ function Footer({ brand = 'IDENTITY CHAIN', links = [], className = '' }) {
 
 	return (
 		<footer className={classes}>
-			<a className="site-footer__brand" href="#home">{brand}</a>
+			<a className="site-footer__brand" href="/">
+				<img className="brand-logo" src="/ana_logo_transparent.png" alt="" />
+				<span>{brand}</span>
+			</a>
 			{links.length > 0 && (
 				<nav className="site-footer__links" aria-label="Alt gezinme">
 					{links.map(({ label, href }) => <a key={`${label}-${href}`} href={href}>{label}</a>)}
