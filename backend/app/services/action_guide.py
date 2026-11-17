@@ -47,7 +47,7 @@ def build_action_guide_pdf() -> bytes:
 		text = line.strip()
 		if not text:
 			story.append(Spacer(1, 2 * mm))
-		elif text.startswith("IDENTITY CHAIN OF PALESTINE") or text.startswith("BASLANGIC EYLEM REHBERI"):
+		elif text.startswith("KENETLEN") or text.startswith("BASLANGIC EYLEM REHBERI"):
 			story.append(Paragraph(text, styles["GuideTitle"]))
 		elif text[:1].isdigit() and ". " in text[:4]:
 			story.append(Paragraph(text, styles["GuideHeading"]))
@@ -64,8 +64,8 @@ def build_action_guide_pdf() -> bytes:
 		rightMargin=22 * mm,
 		topMargin=20 * mm,
 		bottomMargin=20 * mm,
-		title="Identity Chain of Palestine - Baslangic Eylem Rehberi",
-		author="Identity Chain of Palestine",
+		title="KENETLEN - Baslangic Eylem Rehberi",
+		author="KENETLEN",
 	)
 	document.build(story)
 	return buffer.getvalue()

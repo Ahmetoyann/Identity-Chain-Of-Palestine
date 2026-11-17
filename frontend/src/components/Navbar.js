@@ -9,7 +9,7 @@ const defaultLinks = [
 ];
 
 function Navbar({
-	brand = 'IDENTITY CHAIN',
+	brand = 'KENETLEN',
 	brandHref = '/',
 	links = defaultLinks,
 	actionLabel = 'Gönüllü Ol',
@@ -27,7 +27,7 @@ function Navbar({
 	return (
 		<header className={classes}>
 			<a className="brand" href={brandHref} aria-label={`${brand} ana sayfa`}>
-				<img className="brand-logo" src="/ana_logo_transparent.png" alt="" />
+				<img className="brand-logo" src="/yeni_ana_logo_transparent.png" alt="" />
 				<span className="brand-name">{brand}</span>
 			</a>
 

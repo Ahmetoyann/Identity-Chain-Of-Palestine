@@ -4,7 +4,7 @@ function ManifestoPage() {
 			<header className="content-page__header">
 				<p className="eyebrow">ŞEFFAFLIK · HAKKINDA</p>
 				<h1>Bir ismin arkasında bir hayat var.</h1>
-				<p className="content-page__intro">Identity Chain of Palestine, kişileri sayılara indirgemeden hatırlamak ve güvenli, rızaya dayalı dayanışma yolları oluşturmak için tasarlanan bir gönüllülük girişimidir.</p>
+				<p className="content-page__intro">KENETLEN, kişileri sayılara indirgemeden hatırlamak ve güvenli, rızaya dayalı dayanışma yolları oluşturmak için tasarlanan bir gönüllülük girişimidir.</p>
 			</header>
 			<div className="manifesto-principles">
 				<article>

@@ -1,10 +1,10 @@
-function Footer({ brand = 'IDENTITY CHAIN', links = [], className = '' }) {
+function Footer({ brand = 'KENETLEN', links = [], className = '' }) {
 	const classes = ['site-footer', className].filter(Boolean).join(' ');
 
 	return (
 		<footer className={classes}>
 			<a className="site-footer__brand" href="/">
-				<img className="brand-logo" src="/ana_logo_transparent.png" alt="" />
+				<img className="brand-logo" src="/yeni_ana_logo_transparent.png" alt="" />
 				<span>{brand}</span>
 			</a>
 			{links.length > 0 && (

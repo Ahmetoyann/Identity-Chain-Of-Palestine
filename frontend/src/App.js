@@ -18,13 +18,13 @@ function App() {
 
   useEffect(() => {
     const titles = {
-      '/': 'Bir isim, bir hayat | Identity Chain of Palestine',
-      '/archive': 'Canlı Arşiv | Identity Chain of Palestine',
-      '/manifesto': 'Manifesto | Identity Chain of Palestine',
-      '/contact': 'İletişim | Identity Chain of Palestine',
-      '/faq': 'Sıkça Sorulan Sorular | Identity Chain of Palestine',
+      '/': 'Bir isim, bir hayat | Kenetlen',
+      '/archive': 'Canlı Arşiv | Kenetlen',
+      '/manifesto': 'Manifesto | Kenetlen',
+      '/contact': 'İletişim | Kenetlen',
+      '/faq': 'Sıkça Sorulan Sorular | Kenetlen',
     };
-    document.title = titles[path] || 'Sayfa bulunamadı | Identity Chain of Palestine';
+    document.title = titles[path] || 'Sayfa bulunamadı | Kenetlen';
   }, [path]);
 
   if (path.startsWith('/prisoners/')) {
@@ -48,7 +48,7 @@ function App() {
   return (
     <div className="site-shell">
       <Navbar
-        brand="IDENTITY CHAIN"
+        brand="KENETLEN"
         links={[
           { label: 'ARŞİV', href: '/archive' },
           { label: 'MANİFESTO', href: '/manifesto' },
@@ -70,6 +70,7 @@ function App() {
             secondLine="Şu anki profiller temsili kurgu içerikleridir."
             actionLabel="KARDEŞİNLE EŞLEŞ"
             onAction={openMatch}
+            backgroundImage={process.env.PUBLIC_URL + '/filistin-direnis-referandum.jpg'}
           />
           <section className="home-note">
             <p className="eyebrow">KİŞİLERDEN ÖNCE İLKELER</p>
@@ -83,8 +84,8 @@ function App() {
 
       <footer className="site-footer">
         <a className="site-footer__brand" href="/" aria-label="Identity Chain ana sayfa">
-          <img className="brand-logo" src="/ana_logo_transparent.png" alt="" />
-          <span>IDENTITY CHAIN</span>
+          <img className="brand-logo" src="/yeni_ana_logo_transparent.png" alt="" />
+          <span>KENETLEN</span>
         </a>
         <nav className="site-footer__links" aria-label="Alt gezinme">
           <a href="/archive">Arşiv</a>

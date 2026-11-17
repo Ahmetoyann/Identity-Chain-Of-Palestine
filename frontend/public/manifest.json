@@ -1,10 +1,10 @@
 {
-  "short_name": "Identity Chain",
-  "name": "Identity Chain of Palestine",
+  "short_name": "Kenetlen",
+  "name": "Kenetlen",
   "icons": [
     {
-      "src": "ana_logo_transparent.png",
-      "type": "image/png",
+      "src": "yeni_ana_logo.jpeg",
+      "type": "image/jpeg",
       "sizes": "any",
       "purpose": "any"
     }

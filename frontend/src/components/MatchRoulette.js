@@ -106,7 +106,7 @@ function MatchRoulette({ open, onClose }) {
 				{phase === 'spinning' && (
 					<div className="match-wheel" aria-label="Temsili profiller arasından seçim yapılıyor">
 						<div className="match-wheel__ring"><span>Birlikte</span><span>Hatırla</span><span>Dayanış</span><span>Bağ kur</span></div>
-						<div className="match-wheel__center"><img src="/ana_logo_transparent.png" alt="" /></div>
+						<div className="match-wheel__center"><img src="/yeni_ana_logo_transparent.png" alt="" /></div>
 					</div>
 				)}
 				{phase === 'error' && <p className="match-feedback match-feedback--error" role="alert">{error}</p>}

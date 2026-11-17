@@ -20,7 +20,7 @@ function PrisonerDetailPage({ onOpenMatch }) {
 		fetchPrisoner(slug, controller.signal)
 			.then((profile) => {
 				setPerson(profile);
-				document.title = `${profile.name} | Identity Chain of Palestine`;
+				document.title = `${profile.name} | KENETLEN`;
 			})
 			.catch((requestError) => {
 				if (requestError.name !== 'AbortError') setError(requestError.message);
@@ -72,8 +72,8 @@ function PrisonerDetailPage({ onOpenMatch }) {
 		<main className="profile-page">
 			<header className="profile-page__header">
 				<a className="brand" href="/" aria-label="Identity Chain ana sayfa">
-					<img className="brand-logo" src="/ana_logo_transparent.png" alt="" />
-					<span className="brand-name">IDENTITY CHAIN</span>
+					<img className="brand-logo" src="/yeni_ana_logo_transparent.png" alt="" />
+					<span className="brand-name">KENETLEN</span>
 				</a>
 				<a className="profile-page__back" href="/archive">← Arşive dön</a>
 			</header>
